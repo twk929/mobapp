@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+html{
+    font-size: 16px;
+}
+
+*, *::before *::after{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    line-height: normal;
+    font-family: "Helvetica-neue", Arial, "Hiragaino kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #FFFF99;
+
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    margin-top: 28px; 
+    text-align: center;
+    color: rgb(45, 9, 248);
+    font-size: 26px;
+    font-weight: bold;
+    text-shadow: 5px 5px 5px rgba(255, 255, 255, 0.65);
+}
+
+h2{
+    text-align: center;
+}
+
+
+
+footer{
+    position:fixed;
+    bottom: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font: 16px Rajdhani;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(#0408f373 50%, #afeeee 100%);
+}
+
+@media screen and (max-width: 480px) {
+    header{
+        margin-top: 20px;
+        font-size: 22px;
+    }
+}
+
+a:link, a:visited {
+    background-color: #0a98f7;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: 1px 1px 1px rgba(1, 24, 31, 1);
+    box-shadow: 0 2px 5px grey;
+    border-radius: 0px 0px 105px ;
+    background: linear-gradient(#0408f373 50%, #afeeee 100%);
+}
+
+img{
+    width: 260px;;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  
+  
+a:hover, a:active {
+    background-color: rgb(66, 0, 207);
+}
