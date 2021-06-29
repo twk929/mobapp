@@ -136,7 +136,7 @@ width: 100%;
 /* フッター */
 /*****************************/
 footer> p {
-position: absolute;/*←絶対位置*/
+position: fixed;/*←絶対位置*/
 bottom: 5px; /*下に固定*/
 width: 100%;
 margin: 0px;
