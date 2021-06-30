@@ -38,7 +38,7 @@ btn1.addEventListener("click",
       let resultColor = ["#FF0000","#ffe900","#ff9900","#73434a"];
       let resultFontSize = ["95px","80px","60px","30px"];
       let resultMaxSpeed = [5,4,3,2];
-      let resultMaxSize = [45,40,40,20];
+      let resultMaxSize = [38,34,30,20];
       let resultImage = ["img/lily.gif","img/star.gif","img/leaf.gif","img/bubble.png"];
       let resultSound = ["sound/omikuji_sound1.mp3","sound/omikuji_sound2.mp3","sound/omikuji_sound3.mp3","sound/omikuji_sound4.mp3"];
       let n = Math.floor(Math.random() * resultText.length);
