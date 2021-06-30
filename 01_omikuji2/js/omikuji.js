@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded",
 const omikujiText = document.getElementById("omikujiText");
 btn1.addEventListener("click",
    function() {
-      let resultText = ["大吉❣❣❣","吉!!!","中吉!!","小吉❕"];
+      let resultText = ["大吉❣❣❣","吉!!!!","中吉!!","小吉❕"];
       let resultColor = ["#FF0000","#ffe900","#ff9900","#73434a"];
       let resultFontSize = ["75px","65px","55px","30px"];
       let resultMaxSpeed = [5,4,3,2];
