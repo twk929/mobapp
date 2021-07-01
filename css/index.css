@@ -151,7 +151,7 @@ background: rgba(1, 24, 31, 0.7);
 /* https://www.design-memo.com/coding/css-media-queries */
 /* mobileのときのスタイル */
 /*******************************************************/
-@media screen and (max-width: 480px) and (max-height : 667px) {
+@media screen and (max-width: 480px) and (max-height : 507px) {
     body{
         background-position: 41% 10%;
         background-size: 1400px;
