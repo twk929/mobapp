@@ -47,6 +47,7 @@ header{
 
 .omikujiPaper{
     animation: fadeDown 2s forwards;
+    width: 80px;
 }
 
 @keyframes fadeDown{
