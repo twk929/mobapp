@@ -34,6 +34,7 @@ window.addEventListener("DOMContentLoaded",
    }, false
 );
 
+const btn1 = document.getElementById("btn1");
 const omikujiTextImage = document.getElementById("omikujiTextImage");
 btn1.addEventListener("click",
    function() {
