@@ -14,6 +14,7 @@ body{
     text-align: center;
     background-image: url(../img/topimg2.jpg);
     background-size: cover;
+    margin: 0;
 }
 header, footer, h1, h2, h3, p, div, .container01, .filler01 {
     margin: 0.5em 0em 0em 0em;
