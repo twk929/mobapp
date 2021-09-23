@@ -112,6 +112,16 @@ function clear() {
   wkBefore = "1";
 }
 
+
+// 音
+var buttons = document.querySelectorAll('.f-item');
+buttons.forEach (function (element){
+   element.addEventListener ('click', function (event){
+       var clickSound = new Audio ("./audio/click.mp3");
+     clickSound.play ();
+   })
+})
+
 // 計算
 function calculator() {
   switch (wkCalc) {
