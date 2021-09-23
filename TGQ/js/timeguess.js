@@ -98,3 +98,28 @@ function setButtonStateStopped() {
   stop.classList.add("js-unclickable");
   reset.classList.remove("js-unclickable");
 }
+
+//音
+var buttons = document.querySelectorAll('#start');
+buttons.forEach (function (element){
+  element.addEventListener ('click', function (event){
+      var clickSound = new Audio ("./audio/click.mp3");
+    clickSound.play ();
+  })
+})
+
+var buttons = document.querySelectorAll('#stop');
+buttons.forEach (function (element){
+  element.addEventListener ('click', function (event){
+      var clickSound = new Audio ("./audio/stop.mp3");
+    clickSound.play ();
+  })
+})
+
+var buttons = document.querySelectorAll('#reset');
+buttons.forEach (function (element){
+  element.addEventListener ('click', function (event){
+      var clickSound = new Audio ("./audio/reset.mp3");
+    clickSound.play ();
+  })
+})
