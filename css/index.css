@@ -108,7 +108,7 @@ footer> p {
 @media screen and (max-width: 410px) and (max-height : 450px) {
     body{
         background-position: 41% 10%;
-        background-size: 1200px;
+        background-size: cover;
     }
     h1 {
         font: 1.5px Rajdhani, "Noto Sans JP";
