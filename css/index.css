@@ -103,7 +103,7 @@ footer> p {
     font: 14px Rajdhani;
     font-weight: bold;
     text-align: center;
-    background: linear-gradient(#0408f373 50%, #afeeee 100%);
+    background: linear-gradient(blue 10%, #afeeee 100%);
 }
 
 @media screen and (max-width: 410px) and (max-height : 450px) {
