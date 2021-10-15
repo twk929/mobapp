@@ -20,6 +20,10 @@ body{
   margin: 0;
 }
 
+.btnB{
+    margin-top: 0;
+}
+
 a:link, a:visited {
   background-color: #0a98f7;
   color: white;
@@ -115,6 +119,8 @@ i {
 .timer_appear {
   transition: 1s;
 }
+
+
 
 /****************************************/
 /* ボタンエリア                          */
