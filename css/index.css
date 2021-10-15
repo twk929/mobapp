@@ -94,7 +94,7 @@ a {
 }
 
 footer> p {
-    position: fixed;
+    position: relative;
     bottom: 5px;
     width: 100%;
     margin: 0px;
