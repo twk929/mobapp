@@ -23,6 +23,8 @@ start.addEventListener("click",
     setButtonStateRunning();
     startTime = Date.now();
     countUp();
+    let clickSound = new Audio ("./audio/click.mp3");
+    clickSound.play ();
   },false
 );
 
@@ -35,6 +37,8 @@ stop.addEventListener("click",
     setButtonStateStopped();
     clearTimeout(timeoutid); //setTimeout()でセットしたタイマーを解除する際に使用
     stopTime = Date.now() - startTime;
+    let clickSound = new Audio ("./audio/stop.mp3");
+    clickSound.play ();
   },false
 );
 
@@ -47,6 +51,8 @@ reset.addEventListener("click",
     setButtonStateInitial()
     timer.textContent = "00:00.000";
     stopTime = 0;
+    let clickSound = new Audio ("./audio/reset.mp3");
+    clickSound.play ();
   }
 );
 
@@ -99,27 +105,3 @@ function setButtonStateStopped() {
   reset.classList.remove("js-unclickable");
 }
 
-//音
-var buttons = document.querySelectorAll('#start');
-buttons.forEach (function (element){
-  element.addEventListener ('click', function (event){
-      var clickSound = new Audio ("./audio/click.mp3");
-    clickSound.play ();
-  })
-})
-
-var buttons = document.querySelectorAll('#stop');
-buttons.forEach (function (element){
-  element.addEventListener ('click', function (event){
-      var clickSound = new Audio ("./audio/stop.mp3");
-    clickSound.play ();
-  })
-})
-
-var buttons = document.querySelectorAll('#reset');
-buttons.forEach (function (element){
-  element.addEventListener ('click', function (event){
-      var clickSound = new Audio ("./audio/reset.mp3");
-    clickSound.play ();
-  })
-})
