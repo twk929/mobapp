@@ -37,7 +37,7 @@ stop.addEventListener("click",
     clearTimeout(timeoutid); //setTimeout()でセットしたタイマーを解除する際に使用
     stopTime = Date.now() - startTime;
       if(timer.textContent.substr(0,5)==="00:10"){
-        let clickSound = new Audio ("./audio/win.mp3");
+        let clickSound = new Audio ("./audio/win.wav");
         clickSound.play ();
         document.body.style.backgroundImage="url(./img/fw.gif)";
       } else {
