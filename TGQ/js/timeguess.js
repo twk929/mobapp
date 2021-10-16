@@ -46,10 +46,6 @@ stop.addEventListener("click",
       }
   },false
 );
-  
-  
-  },false
-);
 
 ////////////////////////
 // Resetボタンクリック
