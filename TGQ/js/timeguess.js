@@ -36,8 +36,18 @@ stop.addEventListener("click",
     setButtonStateStopped();
     clearTimeout(timeoutid); //setTimeout()でセットしたタイマーを解除する際に使用
     stopTime = Date.now() - startTime;
-    let clickSound = new Audio ("./audio/stop.mp3");
-    clickSound.play ();
+      if(timer.textContent.substr(0,5)==="00:10"){
+        let clickSound = new Audio ("./audio/win.mp3");
+        clickSound.play ();
+        document.body.style.backgroundImage="url(./img/fw.gif)";
+      } else {
+        let clickSound = new Audio ("./audio/stop.mp3");
+        clickSound.play ();
+      }
+  },false
+);
+  
+  
   },false
 );
 
@@ -50,8 +60,7 @@ reset.addEventListener("click",
     setButtonStateInitial()
     timer.textContent = "00:00.000";
     stopTime = 0;
-    let clickSound = new Audio ("./audio/reset.mp3");
-    clickSound.play ();
+    window.location.reload();
   }
 );
 
