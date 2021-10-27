@@ -17,7 +17,8 @@ body{
   sans-serif;
   text-align: center;
   background-color: #000000;
-  background-image: linear-gradient(270deg, #0d0344 0%, #929090 74%);
+  background-image: url(../img/backimg.jpg);
+  /*linear-gradient(270deg, #0d0344 0%, #929090 74%);*/
 }
 
 header, main, footer, h1, h2, h3, p, div, table, .field, .btn-area, .filler01 {
@@ -34,6 +35,7 @@ th, td {
 h1 {
     color: rgb(8, 0, 0);
     box-shadow: 0 2px 5px rgb(255, 255, 255);
+    text-shadow: 0 5px 5px rgb(238, 238, 238);
     border-radius:  20px;
 }
 h2 {
@@ -90,7 +92,7 @@ textarea{
   margin-left:3em;
   text-align: left;
 }
-#save{
+#save, #select {
   padding: 0.5em;
   border-radius: 0.3em;
   color: whitesmoke;
@@ -98,6 +100,17 @@ textarea{
   background: linear-gradient(#0408f373 50%, #afeeee 100%);
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
+
+/*#delete {
+  display: inline-block;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  color: whitesmoke;
+  font-size: 1em;
+  background: linear-gradient(#f30000ee 50%, #feffff 100%);
+  cursor: pointer; /*カーソルをポインターの形（かたち）にする
+}
+*/
 
 /********************************************************/
 /* レスポンシブ対応　メディアクエリを使ってCSSを切り替える */
@@ -124,7 +137,12 @@ textarea{
     width: 100%;
     margin-left: 0.1em;
   }
+  body{
+    background-image: linear-gradient(270deg, #0d0344 0%, #929090 74%);
+  }
 }
+
+
 
 a:link, a:visited {
   color: white;
