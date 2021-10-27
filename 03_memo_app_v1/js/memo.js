@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded",
         }   else {
             viewStorage();
             savelocalStorage();
+            selectTable();
         }
     }
 );
@@ -32,8 +33,33 @@ function savelocalStorage () {
                 document.getElementById("textKey").value = "";
                 document.getElementById("textMemo").value = "";
             }
-        }
+        }, false
     );
+};
+
+function selectTable () {
+    const select = document.getElementById("select");
+    select.addEventListener("click",
+        function(e){
+            e.preventDefault();
+            selectRadioBtn();
+        }, false
+    );
+};
+
+function selectRadioBtn() {
+    let w_sel = "0";
+    const radio1 = document.getElementsByName("radio1");
+    const table1 = document.getElementById("table1");
+
+    for(let i=0; i < radio1.length; i++) {
+        if (radio1[i].checked){
+            document.getElementById("textKey").value = table1.rows[i+1].cells[1].firstChild.data;
+            document.getElementById("textMemo").value = table1.rows[i+1].cells[2].firstChild.data;
+            return w_sel = "1";
+        }
+    }
+    window.alert("１つ選択してください。 \n Please Select one item.");
 };
 
 function viewStorage(){
