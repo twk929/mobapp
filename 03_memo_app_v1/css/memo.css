@@ -101,7 +101,7 @@ textarea{
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
 
-/*#delete {
+#delete {
   display: inline-block;
   padding: 0.5em;
   border-radius: 0.3em;
@@ -110,7 +110,6 @@ textarea{
   background: linear-gradient(#f30000ee 50%, #feffff 100%);
   cursor: pointer; /*カーソルをポインターの形（かたち）にする
 }
-*/
 
 /********************************************************/
 /* レスポンシブ対応　メディアクエリを使ってCSSを切り替える */
