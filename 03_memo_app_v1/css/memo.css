@@ -101,7 +101,7 @@ textarea{
   cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
 
-#delete {
+#del {
   display: inline-block;
   padding: 0.5em;
   border-radius: 0.3em;
