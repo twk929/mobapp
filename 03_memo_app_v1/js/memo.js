@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded",
         }   else {
             viewStorage();
             savelocalStorage();
+            delLocalStorage();
             selectTable();
         }
     }
@@ -60,6 +61,9 @@ function delLocalStorage(){
     );
 };
 
+
+
+
 function selectTable () {
     const select = document.getElementById("select");
     select.addEventListener("click",
@@ -107,3 +111,4 @@ function viewStorage(){
         td3.innerHTML = localStorage.getItem(w_key);
     }
 }
+
