@@ -61,9 +61,9 @@ h2 {
 label {
   position: absolute;
   left:0.5em;
-  color: rgb(8, 1, 48);
+  color: rgb(15, 0, 116);
   font-weight: 1000;
-
+  text-shadow: 0 2px 10px rgb(238, 238, 238);
 }
 
 label::after{
