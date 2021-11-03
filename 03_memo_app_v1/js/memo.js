@@ -37,6 +37,29 @@ function savelocalStorage () {
     );
 };
 
+function delLocalStorage(){
+    const del = document.getElementById("del");
+    del.addEventListener("click",
+        function(e) {
+            e.preventDefault();
+            let w_sel = "0";
+            w_sel = selectRadioBtn();
+
+            if(w_sel === "1"){
+                const key = document.getElementById("textKey").value;
+                const value = document.getElementById("textMemo").value;
+                localStorage.removeItem(key);
+                viewStorage();
+
+                let w_msg = "LocalStorageに " + key +  "  " + value + " を削除しました。";
+                window.alert(w_msg);
+                document.getElementById("textKey").value = "";
+                document.getElementById("textMemo").value = "";
+            }
+        }, false
+    );
+};
+
 function selectTable () {
     const select = document.getElementById("select");
     select.addEventListener("click",
