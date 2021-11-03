@@ -108,7 +108,7 @@ textarea{
   color: whitesmoke;
   font-size: 1em;
   background: linear-gradient(#f30000ee 50%, #feffff 100%);
-  cursor: pointer; /*カーソルをポインターの形（かたち）にする
+  cursor: pointer; /*カーソルをポインターの形（かたち）にする*/
 }
 
 /********************************************************/
