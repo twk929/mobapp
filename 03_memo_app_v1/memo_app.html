@@ -34,12 +34,14 @@
         <input id="save" type="submit" class="btn" value="保存">
       </div>
 
-      <table id="table1">
-        <tr>
-          <th class="width10">選択</th>
-          <th class="width30">キー</th>
-          <th class="width60">メモ</th>
-        </tr>
+      <table class="tablesorter" id="table1">
+        <thead>
+          <tr>
+            <th class="width10">選択</th>
+            <th class="width30">キー</th>
+            <th class="width60">メモ</th>
+          </tr>
+        </thead>
         <tbody id="list">
         </tbody>
       </table>
@@ -47,9 +49,15 @@
       <div class="btn-area">
         <input id="select" type="submit" class="btn" value="選択">
         <input id="del" type="submit" class="btn" value="削除">
+        <input id="allClear" type="submit" class="btn" value="全て削除">
       </div>
-      
+        
     </main>
+
+    <!-- tablesort add jQueryライブラリを使用する。 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> <!--tablesort add-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.min.js"></script>  <!--tablesort add-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/extras/jquery.metadata.min.js"></script> <!--tablesort add-->
 
     <script src="js/memo.js"></script>
   </body>
