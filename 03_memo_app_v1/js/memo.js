@@ -6,11 +6,12 @@ window.addEventListener("DOMContentLoaded",
         if (typeof localStorage === "undefined"){
             window.alert("このブラウザはLocal Storage機能が実装されていません");
             return;
-        }   else {
+        } else {
             viewStorage();
             savelocalStorage();
             delLocalStorage();
             selectTable();
+            allClearLocalStorage();
         }
     }
 );
@@ -26,13 +27,16 @@ function savelocalStorage () {
             if (key=="" || value=="") {
                 window.alert ("Key, Memoはいずれも必須です。");
                 return;
-            }   else {
-                localStorage.setItem(key, value);
-                viewStorage();
-                let w_msg = "LocalStorageに" + key +  " " + value + "を保存しました。";
-                window.alert(w_msg);
-                document.getElementById("textKey").value = "";
-                document.getElementById("textMemo").value = "";
+            } else {
+                let w_confirm=window.confirm("Local Storageに\n"+key+"の"+value+"\nを保存しますか？");
+                if(w_confirm === true) {
+                    localStorage.setItem(key, value);
+                    viewStorage();
+                    let w_msg = "LocalStorageに" + key +  " " + value + "を保存しました。";
+                    window.alert(w_msg);
+                    document.getElementById("textKey").value = "";
+                    document.getElementById("textMemo").value = "";
+                }
             }
         }, false
     );
@@ -45,14 +49,34 @@ function delLocalStorage(){
             e.preventDefault();
             let w_sel = "0";
             w_sel = selectRadioBtn();
-
             if(w_sel === "1"){
                 const key = document.getElementById("textKey").value;
                 const value = document.getElementById("textMemo").value;
-                localStorage.removeItem(key);
-                viewStorage();
+                let w_confirm=window.confirm("Local Storageに\n"+key+"の"+value+"\nを削除しますか？");
+                if(w_confirm === true) {
+                    localStorage.removeItem(key);
+                    viewStorage();
+                    let w_msg = "LocalStorageに " + key +  "  " + value + " を削除しました。";
+                    window.alert(w_msg);
+                    document.getElementById("textKey").value = "";
+                    document.getElementById("textMemo").value = "";
+                }
+            }
+        }, false
+    );
+};
 
-                let w_msg = "LocalStorageに " + key +  "  " + value + " を削除しました。";
+function allClearLocalStorage(){
+    const allClear = document.getElementById("allClear");
+    allClear.addEventListener("click",
+        function(e) {
+            e.preventDefault();
+            let w_confirm = window.confirm("LocalStorageのデータを全て削除します。\nよろしいでしょうか？\nAre you sure you want to delete ALL data from Locat Storage?");
+
+            if(w_confirm === true) {
+                localStorage.clear();
+                viewStorage();
+                let w_msg = "LocalStorageのデータを全て削除しました。";
                 window.alert(w_msg);
                 document.getElementById("textKey").value = "";
                 document.getElementById("textMemo").value = "";
@@ -60,8 +84,6 @@ function delLocalStorage(){
         }, false
     );
 };
-
-
 
 
 function selectTable () {
@@ -110,5 +132,11 @@ function viewStorage(){
         td2.innerHTML = w_key;
         td3.innerHTML = localStorage.getItem(w_key);
     }
-}
 
+    $("#table1").tablesorter({
+        sortList: [[1,0]]
+    });
+
+    $("#table1").trigger("update");
+
+}
