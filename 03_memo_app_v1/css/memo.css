@@ -33,7 +33,7 @@ th, td {
 /* 見出し                                              */
 /*******************************************************/
 h1 {
-    color: rgb(102, 0, 143);
+    color: rgb(128, 215, 255);
     box-shadow: 0 2px 5px rgb(255, 255, 255);
     text-shadow: 0 5px 5px rgb(238, 238, 238);
     border-radius:  20px;
