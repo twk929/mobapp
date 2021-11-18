@@ -79,10 +79,9 @@ function delLocalStorage(){
                         swal("LocalStorageに " + key +  "  " + value + " を削除しました。", {
                             icon: "success",
                         });
-                    } else {
-                    }
-                        document.getElementById("textKey").value = "";
-                        document.getElementById("textMemo").value = "";
+                    } 
+                     document.getElementById("textKey").value = "";
+                     document.getElementById("textMemo").value = "";
                 });
             }
         }, false
