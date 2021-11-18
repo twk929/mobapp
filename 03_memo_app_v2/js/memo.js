@@ -80,9 +80,9 @@ function delLocalStorage(){
                             icon: "success",
                         });
                     } else {
+                    }
                         document.getElementById("textKey").value = "";
                         document.getElementById("textMemo").value = "";
-                    }
                 });
             }
         }, false
