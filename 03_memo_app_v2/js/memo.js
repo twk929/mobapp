@@ -64,7 +64,7 @@ function delLocalStorage(){
                 const value = document.getElementById("textMemo").value;
                 swal({
                     title: "Are you sure?",
-                    text: "Local Storageに "+key+" の "+value+"\nを削除しますか",
+                    text: "Local Storageに "+key+" の "+value+"\nを削除しますか?",
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
