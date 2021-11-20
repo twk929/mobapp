@@ -43,6 +43,8 @@ function savelocalStorage () {
                         swal("LocalStorageに " + key +  " " + value + " を保存しました。", {
                             icon: "success",
                         });
+                        document.getElementById("textKey").value = "";
+                        document.getElementById("textMemo").value = "";
                     } 
                 });
             }
