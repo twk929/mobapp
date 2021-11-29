@@ -26,22 +26,42 @@ function savelocalStorage () {
             const value = document.getElementById("textMemo").value;
 
             if (key=="" || value=="") {
-                swal("Key, Memoはいずれも必須です。");
+                let clickSound = new Audio ("./audio/wrng.wav");
+                clickSound.play ();
+                Swal.fire({
+                    title: "<p id='swaltxt'>Memo App<p>",
+                    html: "<p id='swaltxt'>Key, Memo はいずれも必須です。<p>",
+                    type: "error",
+                    background: '  url(./img/alert.jpg)',
+                    allowOutsideClick : false,
+                });
                 return;
             } else {
-                swal({
-                    title: "Are you sure?",
-                    text: "Local Storageに "+key+" の "+value+"\nを保存しますか？",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
+                let w_msg = "<p id='swaltxt'>Local Storageに "+key+" の "+value+" を保存しますか？</p>";
+                let clickSound = new Audio ("./audio/memo.wav");
+                clickSound.play ();
+                Swal.fire({
+                    title: "<p id='swaltxt'>Memo App</p>",
+                    html: w_msg ,
+                    type: "question",
+                    background: '  url(./img/sure.jpg)',
+                    borderRadius: '2000px',
+                    showCancelButton: true
                 })
-                .then((willSave) => {
-                    if (willSave) {
+
+                .then(function(result) {
+                    if (result.value===true) {
                         localStorage.setItem(key, value);
                         viewStorage();
-                        swal("LocalStorageに " + key +  " " + value + " を保存しました。", {
-                            icon: "success",
+                        let w_msg = "<p id='swaltxt'>LocalStorageに " + key +  " の " + value + " を保存しました。</p>";
+                        let clickSound = new Audio ("./audio/done.mp3");
+                        clickSound.play ();  
+                        Swal.fire({
+                            title: "<p id='swaltxt'>Done<p>",
+                            html: w_msg,
+                            type: "success",
+                            background: 'url(./img/ok.jpg)',
+                            allowOutsideClick: false
                         });
                         document.getElementById("textKey").value = "";
                         document.getElementById("textMemo").value = "";
@@ -57,24 +77,39 @@ function delLocalStorage(){
     del.addEventListener("click",
         function(e) {
             e.preventDefault();
-            let w_sel = "0";
-            w_sel = selectCheckBox();
-            if(w_sel === "1"){
-                const key = document.getElementById("textKey").value;
-                const value = document.getElementById("textMemo").value;
-                swal({
-                    title: "Are you sure?",
-                    text: "Local Storageに "+key+" の "+value+"\nを削除しますか?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
+            const chkbox1 = document.getElementsByName("chkbox1");
+            const table1 = document.getElementById("table1");
+            let w_cnt = 0;
+            w_cnt = selectCheckBox("del");
+            
+            if(w_cnt >= 1){
+                let w_msg = "<p id='swaltxt'>Local Storageから選択されている "+(w_cnt)+" 件を削除しますか？</p>";
+                let clickSound = new Audio ("./audio/error.mp3");
+                clickSound.play ();
+                Swal.fire({
+                    title: "<p id='swaltxt'>Memo App</p>",
+                    html: w_msg ,
+                    type: "question",
+                    background: '  url(./img/warn.jpg)',
+                    showCancelButton: true
                 })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        localStorage.removeItem(key);
+                .then(function(result) {
+                    if (result.value===true) {
+                        for(let i=0; i < chkbox1.length; i++) {
+                            if(chkbox1[i].checked){
+                                localStorage.removeItem(table1.rows[i+1].cells[1].firstChild.data);
+                            }
+                        }
                         viewStorage();
-                        swal("LocalStorageに " + key +  "  " + value + " を削除しました。", {
-                            icon: "success",
+                        let w_msg = "<p id='swaltxt'>LocalStorageから " +(w_cnt)+ " 件を削除しました。</p>";
+                        let clickSound = new Audio ("./audio/trash.mp3");
+                        clickSound.play ();  
+                        Swal.fire({
+                            title: "<p id='swaltxt'>Done<p>",
+                            html: w_msg,
+                            type: "success",
+                            background: '  url(./img/ok.jpg)',
+                            allowOutsideClick: false
                         });
                     } 
                      document.getElementById("textKey").value = "";
@@ -91,20 +126,30 @@ function allClearLocalStorage(){
     allClear.addEventListener("click",
         function(e) {
             e.preventDefault();
-                swal({
-                    title: "Are you sure?",
-                    text: "LocalStorageのデータを全て削除しますか？",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
+                let w_msg = "<p id='swaltxt'>LocalStorageのデータを全て削除しますか？</P>";
+                let clickSound = new Audio ("./audio/error.mp3");
+                clickSound.play ();
+                Swal.fire({
+                    title: "<p id='swaltxt'>Memo App<p>",
+                    html: w_msg ,
+                    type: "question",
+                    background: '  url(./img/warn.jpg)',
+                    showCancelButton: true
                 })
-                .then((willAllDel)=>{
-                    if(willAllDel){
+                .then(function(result) {
+                    if (result.value===true) {
                         localStorage.clear();
                         viewStorage();
-                        swal("LocalStorageのデータを全て削除しました。",{
-                            icon: "success",
-                        });
+                        let w_msg ="<p id='swaltxt'>LocalStorageのデータを全て削除しました。</P>";
+                        let clickSound = new Audio ("./audio/trash.mp3");
+                        clickSound.play ();  
+                        Swal.fire({
+                            title: "<p id='swaltxt'>Done<p>",
+                            html: w_msg,
+                            type: "success",
+                            background: '  url(./img/ok.jpg)',
+                            allowOutsideClick: false
+                        }); 
                         document.getElementById("textKey").value = "";
                         document.getElementById("textMemo").value = "";
                     }
@@ -119,21 +164,19 @@ function selectTable () {
     select.addEventListener("click",
         function(e){
             e.preventDefault();
-            selectCheckBox();
+            selectCheckBox("select");
         }, false
     );
 };
 
 
 //selectCheckBox
-function selectCheckBox() {
-    let w_sel = "0";
+function selectCheckBox(mode) {
     let w_cnt = 0;
     const chkbox1 = document.getElementsByName("chkbox1");
     const table1 = document.getElementById("table1");
     let w_textkey = "";
     let w_textmemo = "";
-
 
     for(let i=0; i < chkbox1.length; i++) {
         if (chkbox1[i].checked){
@@ -146,10 +189,39 @@ function selectCheckBox() {
     }
     document.getElementById("textKey").value = w_textkey;
     document.getElementById("textMemo").value = w_textmemo;
-    if(w_cnt===1){
-        return w_sel="1";
-    }else{
-        swal("一つを選んでください!!!");
+
+    if(mode === "select"){
+        if(w_cnt===1){
+            let clickSound = new Audio ("./audio/select.mp3");
+            clickSound.play ();
+            return w_cnt;
+        }else{
+            let clickSound = new Audio ("./audio/wrng.wav");
+            clickSound.play ();
+            Swal.fire({
+                title: "<p id='swaltxt'>Memo App",
+                html: "<p id='swaltxt'>一つを選んでください!!!<p>",
+                background: '  url(./img/alert.jpg)',
+                type: "error",
+                allowOutsideClick : false
+            });
+        }
+    }
+
+    if(mode==="del"){
+        if(w_cnt >= 1){
+            return w_cnt;
+        }else{
+            let clickSound = new Audio ("./audio/wrng.wav");
+            clickSound.play ();
+            Swal.fire({
+                title: "<p id='swaltxt'>Memo App<p>",
+                html: "<p id='swaltxt'>一つを選んでください!!!</p>",
+                type: "error",
+                background: '  url(./img/alert.jpg)',
+                allowOutsideClick : false
+            });            
+        }
     }
 };
 
