@@ -42,11 +42,11 @@ let winningLine = null;
 
 //message
 
-const msgtxt1 = '<p class ="image"> <img src = "img/penguin.png" width 61px height = 61px ></p><p class="text1"> Penguins Attack !</p>'
-const msgtxt2 = '<p class ="image"> <img src = "img/whitebear.png" width 61px height = 61px ></p><p class="text2"> GoldBear Attack !</p>'
-const msgtxt3 = '<p class ="image"> <img src = "img/penguin.png" width 61px height = 61px ></p><p class="text animate_animated animate_lightSpeedInRight"> Penguins Win !</p>'
-const msgtxt4 = '<p class ="image"> <img src = "img/whitebear.png" width 61px height = 61px ></p><p class="text animate_animated animate_lightSpeedInRight"> GoldBear Win !</p>'
-const msgtxt5 = '<p class ="image"> <img src = "img/whitebear.png" width 61px height = 61px ><img src = "img/penguin.png" width 61px height = 61px ></p><p class="text animate_bounseIn"> Draw !!! </p>'
+const msgtxt1 = '<p class ="image"> <img src = "img/penguin.png" width 70px height = 70px ></p><p class="text1"> Penguins Attack !</p>'
+const msgtxt2 = '<p class ="image"> <img src = "img/whitebear.png" width 70px height = 70px ></p><p class="text2"> GoldBear Attack !</p>'
+const msgtxt3 = '<p class ="image"> <img src = "img/penguin.png" width 70px height = 70px ></p><p class="text3"> Penguins Win !</p>'
+const msgtxt4 = '<p class ="image"> <img src = "img/whitebear.png" width 70px height = 70px ></p><p class="text3"> GoldBear Win !</p>'
+const msgtxt5 = '<p class ="image"> <img src = "img/whitebear.png" width 70px height = 70px ><img src = "img/penguin.png" width 70px height = 70px ></p><p class="text animate_bounseIn"> Draw !!! </p>'
 
 function JudgeLine(targetArray, idArray) {
     return targetArray.filter(function (e) {
@@ -109,6 +109,7 @@ function isSelect(selectSquare) {
         //penguins win
         if (isWinner("penguins")) {
             setMessage("pen-win");
+            gameOver("penguins");
             return;
         }
         setMessage("bear-turn");
@@ -121,6 +122,7 @@ function isSelect(selectSquare) {
         //gold-bear win
         if (isWinner("bear")) {
             setMessage("bear-win");
+            gameOver("bear")
             return;
         }
         setMessage("pen-turn");
@@ -131,6 +133,7 @@ function isSelect(selectSquare) {
 
     if (counter === 0) {
         setMessage("draw");
+        gameOver("draw");
     }
 }
 
@@ -156,26 +159,59 @@ function setMessage (id) {
     switch (id) {
         case "pen-turn":
             document.getElementById("msgtext").innerHTML=msgtxt1;
-            /*let clickSound1 = new Audio ("./audio/click_sound1.mp3");
-            clickSound1.play ();    */
             break;
         case "bear-turn":
             document.getElementById("msgtext").innerHTML=msgtxt2;
             break;
         case "pen-win":
             document.getElementById("msgtext").innerHTML=msgtxt3;
-            window.setTimeout(function(){location.reload()},3000);
             break;
         case "bear-win":
             document.getElementById("msgtext").innerHTML=msgtxt4;
-            window.setTimeout(function(){location.reload()},3000);
             break;
         case "draw":
             document.getElementById("msgtext").innerHTML=msgtxt5;
-            window.setTimeout(function(){location.reload()},3000);
             break;
         default:
             document.getElementById("msgtxt").innerHTML=msgtxt1;
+    }
+}
+
+function gameOver (status) {
+    //all square unclickable
+    squaresArray.forEach(function (square){
+        square.classList.add("js-unclickable");
+    });
+
+    if(status==="penguins") {
+        if(winningLine) {
+            winningLine.forEach(function (square){
+                square.classList.add("js-pen_highlight");
+            });
+        }
+        $(document).snowfall({
+            flakeColor : "rgb(255,240,245)",
+            maxSpeed : 3,
+            minSpeed : 1,
+            maxSize : 20,
+            minSize : 10,
+            round : true
+        });
+
+    } else if (status==="bear") {
+        if(winningLine) {
+            winningLine.forEach(function (square){
+                square.classList.add("js-bear_highlight");
+            });
+        }
+        $(document).snowfall({
+            flakeColor : "rgb(175,238,238)",
+            maxSpeed : 13,
+            minSpeed : 1,
+            maxSize : 20,
+            minSize : 10,
+            round : true
+        });
     }
 }
 
