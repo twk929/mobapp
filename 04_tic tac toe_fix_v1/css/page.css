@@ -38,38 +38,6 @@ header{
     1px 30px 60px rgba(16,16,16,0.4);
 }
 
-
-#btn1{
-    position: relative;
-    margin: 20px auto;
-    width: 250px;
-    height: 200px;
-    line-height: 200px;
-    border-radius: 0 115px;
-    border-color: rgb(255,0,212);
-    font-weight: bold;
-    font-size: 40px;
-    text-align:center;
-    text-shadow: 1px 1px 1px rgba(1, 24, 31, 0.7);
-    background: linear-gradient(#6d6fff73 50%, #afeeee 100%);
-    box-shadow: 0 10px 0 grey;
-    justify-content: center;
-    user-select: none;
-    cursor: pointer;
-    transition: 1s;
-}
-
-#btn1:hover{
-    animation:colorChange 2s;
-}
-
-#btn1:active{
-    position: relative;
-    top: 5px;
-    left: 5px;
-    box-shadow: 0 5px 0 grey;
-}
-
 #msgtext {
     color: white    ;
 }
@@ -132,12 +100,12 @@ header{
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 380px;
+    width: 319px;
     background-image:  linear-gradient(to left, rgb(253, 230, 138), rgb(251, 191, 36), rgb(180, 83, 9));
 }
 
 .squares-box {
-    height: 380px;
+    height: 319px;
     display: flex;
     flex-wrap: wrap;
     border: solid 2px rgb(129, 95, 0);
@@ -146,8 +114,8 @@ header{
 
 .square {
     position: relative;
-    width: calc(364px / 3);
-    height: calc(368px /3);
+    width: calc(303px / 3);
+    height: calc(303x /3);
     border: solid 2px rgb(143, 105, 0);
 }
 
@@ -156,8 +124,8 @@ header{
     position: absolute;
     top: 0;
     left: 0;
-    width: 121px;
-    height: 122px;
+    width: 101px;
+    height: 102px;
     content: '';
     background-image: url(../img/penguin.gif);
     background-size: contain;
@@ -167,8 +135,8 @@ header{
     position: absolute;
     top: 0;
     left: 0;
-    width: 121px;
-    height: 122px;
+    width: 101px;
+    height: 102px;
     content: '';
     background-image: url(../img/whitebear.gif);
     background-size: contain;    
@@ -260,6 +228,50 @@ a:link, a:visited {
 a:hover, a:active {
     background-color: rgb(66, 0, 207);
 }
+
+/*New game Reload button*/
+
+.button {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    border-color: #7c7c7c;
+    background: linear-gradient(180deg,#e6e6e6 0%,rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%,rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 25px;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top: 30px;
+    color: gold;
+  }
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
 
 /* winner line highlight*/
 
