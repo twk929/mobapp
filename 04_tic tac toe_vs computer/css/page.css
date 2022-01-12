@@ -11,7 +11,12 @@ html{
 body{
     margin: 0;
     line-height: normal;
-    font-family: "Helvetica-neue", Arial, "Hiragaino kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    Meiryo,
+    sans-serif;
     background-image: linear-gradient(to right, rgb(15, 23, 42), rgb(88, 28, 135), rgb(15, 23, 42));
     background-position: center;
     background-size: cover;
