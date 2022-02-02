@@ -233,3 +233,9 @@ table tr{
 .width60{
   width: 60%;
 }
+
+#swaltxt{
+  color: rgb(255, 255, 255);
+}
+
+.swal2-border-radius { -webkit-border-radius: 0 !important; -moz-border-radius: 0 !important; border-radius: 0 !important; }
