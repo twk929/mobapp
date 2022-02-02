@@ -32,6 +32,7 @@ function savelocalStorage () {
                     title: "Memo App",
                     html: "Key, Memoはいずれも必須です。",
                     type: "error",
+                    background: '  url(./img/alert.jpg)',
                     allowOutsideClick : false
                 });
                 return;
@@ -43,6 +44,7 @@ function savelocalStorage () {
                     title: "Memo App",
                     html: w_msg ,
                     type: "question",
+                    background: '  url(./img/sure.jpg)',
                     showCancelButton: true
                 })
                 .then(function(result) {
@@ -54,6 +56,7 @@ function savelocalStorage () {
                             title: "Done",
                             html: w_msg,
                             type: "success",
+                            background: 'url(./img/ok.jpg)',
                             allowOutsideClick: false
                         });                            
                         document.getElementById("textKey").value = "";
@@ -83,6 +86,7 @@ function delLocalStorage(){
                     title: "Memo App",
                     html: w_msg ,
                     type: "question",
+                    background: '  url(./img/warn.jpg)',
                     showCancelButton: true
                 })
                 .then(function(result) {
@@ -100,6 +104,7 @@ function delLocalStorage(){
                             title: "Done",
                             html: w_msg,
                             type: "success",
+                            background: '  url(./img/ok.jpg)',
                             allowOutsideClick: false
                         });
                     } 
@@ -126,6 +131,7 @@ table1.addEventListener("click", (e) => {
             title : "Memo app",
             html : w_delete,
             type : "question",
+            background: '  url(./img/warn.jpg)',
             showCancelButton : true
         }).then(result => {
             if(result.value === true) {
@@ -138,6 +144,7 @@ table1.addEventListener("click", (e) => {
                     title : "Memo app",
                     html : w_msg,
                     type : "success",
+                    background: '  url(./img/ok.jpg)',
                     allowOutsideClick : false 
                 });
                 document.getElementById("textkey").value = " ";
@@ -163,6 +170,7 @@ function allClearLocalStorage(){
                     title: "Memo App",
                     html: w_msg ,
                     type: "question",
+                    background: '  url(./img/warn.jpg)',
                     showCancelButton: true
                 })
                 .then(function(result) {
@@ -176,6 +184,7 @@ function allClearLocalStorage(){
                             title: "Done",
                             html: w_msg,
                             type: "success",
+                            background: '  url(./img/ok.jpg)',
                             allowOutsideClick: false
                         }); 
                         document.getElementById("textKey").value = "";
@@ -228,6 +237,7 @@ function selectCheckBox(mode) {
                 title: "Memo App",
                 html: "一つを選んでください!!!",
                 type: "error",
+                background: '  url(./img/alert.jpg)',
                 allowOutsideClick : false
             });
         }
@@ -243,6 +253,7 @@ function selectCheckBox(mode) {
                 title: "Memo App",
                 html: "一つを選んでください!!!",
                 type: "error",
+                background: '  url(./img/alert.jpg)',
                 allowOutsideClick : false
             });            
         }
